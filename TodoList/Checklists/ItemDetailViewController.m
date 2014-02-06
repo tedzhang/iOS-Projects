@@ -46,6 +46,7 @@
         _dueDate = [NSDate date];
     }
     
+    [self updateDueDateLabel];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -141,6 +142,7 @@
 {
     _dueDate = datePicker.date;
     [self updateDueDateLabel];
+    self.doneBarButton.enabled = YES;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -265,5 +267,9 @@
     [self hideDatePicker];
 }
 
+- (IBAction)switchValueChanged:(id)sender
+{
+    self.doneBarButton.enabled = YES;
+}
 
 @end
